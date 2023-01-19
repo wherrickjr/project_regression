@@ -24,7 +24,8 @@ def get_zillow_data():
             bathroomcnt as bathrooms, taxvaluedollarcnt as tax_value \
             from properties_2017 as props\
                 join predictions_2017 as preds using(parcelid)\
-                    where props.parcelid = preds.parcelid', get_connection('zillow'))
+                    where props.parcelid = preds.parcelid and\
+                        propertylandusetypeid = 261;', get_connection('zillow'))
         df.to_csv(filename)
         return df
 
@@ -66,8 +67,8 @@ def prep_zillow(df):
     
     #drop outliers
 
-    Q1 = np.percentile(train['tax_value'], 25, interpolation = 'midpoint')
-    Q3 = np.percentile(train['tax_value'], 75, interpolation = 'midpoint')
+    Q1 = np.percentile(df['tax_value'], 25, interpolation = 'midpoint')
+    Q3 = np.percentile(df['tax_value'], 75, interpolation = 'midpoint')
     IQR = Q3 - Q1
     df = df[df['tax_value'] <= Q3 + 1.5 * IQR]
     df = df[df['tax_value'] >= Q1 - 1.5 * IQR]
