@@ -87,3 +87,10 @@ def wrangle_zillow():
     train, validate, test = prep_zillow(acquire_zillow())
     
     return train, validate, test
+
+
+def scale(df):
+    mms = MinMaxScaler()
+# This reassigns the scaled versions into the dataframe by replacing the old numbers
+    df[[ 'sqft', 'bedrooms', 'bathrooms']] = mms.fit_transform(df[[ 'sqft', 'bedrooms', 'bathrooms']])
+    return df
