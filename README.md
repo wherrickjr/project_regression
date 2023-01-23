@@ -25,7 +25,7 @@ My initial hypothesis is that the square feet of a home, the number of bedrooms,
        * bathrooms
        * sqft
  
-* Explore data in search of drivers of churn
+* Explore data in search of drivers of tax value
    * Answer the following initial questions
       * What is a property's appraisal value?
       * What variables correlate with each other?
