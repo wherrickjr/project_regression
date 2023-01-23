@@ -25,7 +25,7 @@ My initial hypothesis is that the square feet of a home, the number of bedrooms,
        * bathrooms
        * sqft
  
-* Explore data in search of drivers of churn
+* Explore data in search of drivers of tax value
    * Answer the following initial questions
       * What is a property's appraisal value?
       * What variables correlate with each other?
@@ -49,6 +49,13 @@ My initial hypothesis is that the square feet of a home, the number of bedrooms,
 |bedrooms| this is the number of bedrooms on the property|
 |bathrooms| this is the number of bathrooms on the property|
 |sqft| This number represents the total area of a property in square feet.|
+|lm_rmse| root mean squared deviation for the classic Linear Regression model|
+|lassopoly| root mean squared deviation for the classic LASSO model|
+|poly_rmse| root mean squared deviation for the classic Polynomial Regression model|
+|baseline| root mean squared deviation using baseline|
+|LASSO| Least Absolute Shrinkage and Selection Operator|
+|LARS| Least Angle Regression|
+
 
 # Steps to Reproduce
 1) Clone this repo.
@@ -57,15 +64,14 @@ My initial hypothesis is that the square feet of a home, the number of bedrooms,
 4) Run notebook.
  
 # Takeaways and Conclusions
-* "Internet service type" and "online security" were each found to be factors of "churn"
-    * The influence appears strong
-* Monthly charges appears to have influence on churn
-    * the spread of the distribution indicates that the influence is weak
-* Contract type can may influence churn based on visuals
-* Having online security also affects churn as shown in our visuals
-* These are enough features to create a model that can predict customer churn
+* Square feet of home and tax value have a positive correlation
+    * The influence appears moderate
+* bathrooms and bedrooms have a positive correlation
+    * correlation appears weak
+* Polynomial model is the most accurate but is still not very reliable
+* not enough features to create an accurate model that predicts tax_value
  
 # Recommendations
-* Consider lowering price of Fiber Optic and increase customers with online_security
-* Use Logistic Regression model to predict whether or not a customer is going to churn and have marketing team target these customers
-* Accquire more demographic data from customers
+* add another feature like block location to come up with a better model
+* Use polynomial regression to make predictions
+* Consider finding another model or gathering more data
