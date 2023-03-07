@@ -1,8 +1,8 @@
-
 env.py
 .DS_Store
 .ipynb_checkpoints/
 __pycache__
 *.csv
-zillow.csv
-explore.py
+*.png
+scratch.ipynb
+*.xlsx
